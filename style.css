@@ -1,0 +1,30 @@
+body {
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+hr {
+    margin-top: 0px;
+    width: 85%;
+}
+
+table {
+    margin-top: 2rem;
+}
+
+td {
+    height: 10em;
+    width: 10em;
+    text-align: center;
+    outline: 3px solid black;
+}
+
+footer p {
+    font-size: 3rem;
+    margin-top: 5rem;
+}
+
+img {
+    width: 100%;
+}
