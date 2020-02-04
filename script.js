@@ -22,30 +22,30 @@ let pOTurn = false;
 
 /*---------- logic ----------*/
 
-/* gives an click event listener to all the boxes */
-for (let i = 0; i < box.length; i++) {
-    box[i].addEventListener("click", event => {
-        if (pXTurn) {
-            event.target.innerHTML = "<p>X</p>"
-        } else if (pOTurn) {
-            event.target.innerHTML = "<p>O</p>"
-        }
-    })
-}
-
 /* pushes X or O to the correct arrays and td boxes */
 function pushToArrays(...arrs) {
     for (let i = 0; i < arrs.length; i++) {
         if (pXTurn) {
             winningConditions[arrs[i]].push("X");
-            // checkForWin();
         } else if (pOTurn) {
             winningConditions[arrs[i]].push("O");
-            // checkForWin();  
         }
     }
-    turns.pop();
-    changePlayer();
+}
+
+/* gives an click event listener to all the boxes */
+for (let i = 0; i < box.length; i++) {
+    box[i].addEventListener("click", event => {
+        if (pXTurn) {
+            event.target.innerHTML = "<p>X</p>"
+            turns.pop();
+            changePlayer();
+        } else if (pOTurn) {
+            event.target.innerHTML = "<p>O</p>"
+            turns.pop();
+            changePlayer();
+        }
+    })
 }
 
 function changePlayer() {
@@ -63,11 +63,16 @@ function changePlayer() {
 function displayTurn() {
     if (pXTurn) {
         playerStatus.textContent = "It is player X's turn";
+        checkForWin()
     } else if (pOTurn){
         playerStatus.textContent = "It is player O's turn";
+        checkForWin()
     };
 }
 
 function checkForWin() {
-
+    if (turns.length === 0) {
+        alert ("Cats game! You guys both suck.")
+        return;
+    }
 }
