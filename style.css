@@ -14,15 +14,15 @@ table {
 }
 
 td {
-    height: 10em;
-    width: 10em;
+    height: 8em;
+    width: 8em;
     text-align: center;
     outline: 3px solid black;
 }
 
 footer p {
     font-size: 3rem;
-    margin-top: 5rem;
+    margin-top: 4rem;
 }
 
 img {
