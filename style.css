@@ -28,3 +28,7 @@ footer p {
 img {
     width: 100%;
 }
+
+td p {
+    font-size: 40px;
+}

@@ -39,11 +39,11 @@ for (let i = 0; i < box.length; i++) {
         if (pXTurn) {
             event.target.innerHTML = "<p>X</p>"
             turns.pop();
-            changePlayer();
+            changePlayer()
         } else if (pOTurn) {
             event.target.innerHTML = "<p>O</p>"
             turns.pop();
-            changePlayer();
+            changePlayer()
         }
     })
 }
@@ -71,8 +71,17 @@ function displayTurn() {
 }
 
 function checkForWin() {
+    for (let i = 0; i < winningConditions.length; i++) {
+        if (winningConditions[i].length === 3) {
+            if(winningConditions[i].every(str => str === "X")) {
+                playerStatus.textContent = "Player X Wins!";
+            } else if (winningConditions[i].every(str => str === "O")) {
+                playerStatus.textContent = "Player O Wins!";
+            }
+        }
+    };
     if (turns.length === 0) {
-        alert ("Cats game! You guys both suck.")
+        playerStatus.textContent = "Cats Game! You guys both suck";
         return;
     }
 }
