@@ -36,14 +36,18 @@ function pushToArrays(...arrs) {
 /* gives an click event listener to all the boxes */
 for (let i = 0; i < box.length; i++) {
     box[i].addEventListener("click", event => {
-        if (pXTurn) {
-            event.target.innerHTML = "<p>X</p>"
-            turns.pop();
-            changePlayer()
-        } else if (pOTurn) {
-            event.target.innerHTML = "<p>O</p>"
-            turns.pop();
-            changePlayer()
+        if (event.target.textContent !== "X" && event.target.textContent !== "O") {
+            if (event.target.innerHTML !== "<p>X</p>" && event.target.innerHTML !== "<p>O</p>") {
+                if (pXTurn) {
+                    event.target.innerHTML = "<p>X</p>"
+                    turns.pop();
+                    changePlayer()
+                } else if (pOTurn) {
+                    event.target.innerHTML = "<p>O</p>"
+                    turns.pop();
+                    changePlayer()
+                }
+            }
         }
     })
 }
